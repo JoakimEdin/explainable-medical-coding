@@ -55,3 +55,11 @@ models:
 	poetry run gdown --id 1hYeJhztAd-JbhqHojY7ZpLtkBcthD8AK -O models/temp.tar.gz
 	tar -xvzf models/temp.tar.gz
 	rm models/temp.tar.gz
+
+prepare_everything:
+	make setup
+	make mimiciv
+	make mimiciii
+	make mdace
+	make roberta
+	make models

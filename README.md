@@ -2,23 +2,27 @@ Explainable Medical Coding
 ==============================
 
 # Setup
-While our paper only presented results on MIMIC-III and MDACE, our code also supports experiments on MIMIC-IV. Here is a guide to setting up the repository for experimentation and reproducibility.
+While our paper only presented results on MIMIC-III and MDACE, our code also supports experiments on MIMIC-IV. Here is a guide to setting up the repository for experimentation and reproducibility. Notice that you will need +100 GB of storage to fit everything.
 1. Clone this repository.
 2. cd explainable_medical_coding
-3. Use a virtual environment (e.g., conda) with python 3.11.5 installed.
-4. Enter `make setup`. It should install everything you need to use the code.
-5. `cd data/raw`
-6. Install [MIMIC-IV](https://physionet.org/content/mimiciv/2.2/) using wget (we used version 2.2)
-7. Install [MIMIC-IV-Note](https://physionet.org/content/mimic-iv-note/2.2/) using wget (we used version 2.2)
-8. Install [MIMIC-III](https://physionet.org/content/mimiciii/1.4/) using wget (we used version 1.4)
-9. Back to the main repository folder `cd -`
-10. Prepare datasets. `make mimiciii`, `make mimiciv`, `make mdace_icd9`.
-11. Download RoBERTa-base-PM-M3-Voc which is necessary for training PLM-ICD `make roberta`
-12. Download the 10 runs of the PGD, IGR, TM, B_S and B_U. They require 70GB of storage. `make models` (the command is slow to execute)
-13. Change the paths in the .env file. Set EXPERIMENT_PATH to were you want to store the experiments you will run.
-14. Create a weights and biases account. It is possible to run the experiments without wandb.
+3. `cd data/raw`
+4. Install [MIMIC-IV](https://physionet.org/content/mimiciv/2.2/) using wget (we used version 2.2)
+5. Install [MIMIC-IV-Note](https://physionet.org/content/mimic-iv-note/2.2/) using wget (we used version 2.2)
+6. Install [MIMIC-III](https://physionet.org/content/mimiciii/1.4/) using wget (we used version 1.4)
+7. Back to the main repository folder `cd -`
+8. Use a virtual environment (e.g., conda) with python 3.11.5 installed.
+9. Create a weights and biases account. It is possible to run the experiments without wandb.
+10. Prepare code, datasets and models using the command: `make prepare_everything`. Go grab an enourmous coffee.
 
 You are now all set to run experiments!
+
+Instead of using `make prepare_everything`, you can run it in multiple steps. This can be useful if you don't have storage for everything. E.g., if you don't need the model weights which takes +70GB of storage.
+1. Enter `make setup`. It should install everything you need to use the code.
+2. prepare the datasets and download the models using the command
+3. Prepare datasets. `make mimiciii`, `make mimiciv`, `make mdace_icd9`.
+4. Download RoBERTa-base-PM-M3-Voc which is necessary for training PLM-ICD `make roberta`
+5. Download the 10 runs of the PGD, IGR, TM, B_S and B_U. They require 70GB of storage. `make models` (the command is slow to execute)
+
 
 # Note on licenses
 
