@@ -20,8 +20,8 @@ Instead of using `make prepare_everything`, you can run it in multiple steps. Th
 1. Enter `make setup`. It should install everything you need to use the code.
 2. prepare the datasets and download the models using the command
 3. Prepare datasets. `make mimiciii`, `make mimiciv`, `make mdace_icd9`.
-4. Download RoBERTa-base-PM-M3-Voc which is necessary for training PLM-ICD `make roberta`
-5. Download the 10 runs of the PGD, IGR, TM, B_S and B_U. They require 70GB of storage. `make models` (the command is slow to execute)
+4. Download RoBERTa-base-PM-M3-Voc which is necessary for training PLM-ICD `make download_roberta`
+5. Download the 10 runs of the PGD, IGR, TM, B_S and B_U. They require 70GB of storage. `make download_models` (the command is slow to execute)
 
 
 # Note on licenses

@@ -44,15 +44,15 @@ mdace:
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd9_inpatient_code.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd10_inpatient.py
 
-roberta:
+download_roberta:
 	wget https://dl.fbaipublicfiles.com/biolm/RoBERTa-base-PM-M3-Voc-hf.tar.gz -P models
 	tar -xvzf models/RoBERTa-base-PM-M3-Voc-hf.tar.gz -C models
 	rm models/RoBERTa-base-PM-M3-Voc-hf.tar.gz
 	mv models/RoBERTa-base-PM-M3-Voc/RoBERTa-base-PM-M3-Voc-hf models/roberta-base-pm-m3-voc-hf
 	rm -r models/RoBERTa-base-PM-M3-Voc
 
-models:
-	poetry run gdown --id 1hYeJhztAd-JbhqHojY7ZpLtkBcthD8AK -O models/temp.tar.gz
+download_models:
+	poetry run gdown --id 1Gna1tEQqtSrBQC_2QX_1HGpZBYAFQCix -O models/temp.tar.gz
 	tar -xvzf models/temp.tar.gz
 	rm models/temp.tar.gz
 
@@ -61,5 +61,5 @@ prepare_everything:
 	make mimiciv
 	make mimiciii
 	make mdace
-	make roberta
-	make models
+	make download_roberta
+	make download_models
