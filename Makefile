@@ -55,5 +55,5 @@ roberta:
 
 models:
 	poetry run gdown --id 1hYeJhztAd-JbhqHojY7ZpLtkBcthD8AK -O models/temp.tar.gz
-	tar -xvzf temp.tar.gz -C models
+	tar -xvzf models/temp.tar.gz -C models
 	rm models/temp.tar.gz

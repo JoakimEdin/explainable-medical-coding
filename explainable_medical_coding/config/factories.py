@@ -236,7 +236,6 @@ def get_explainability_method(name: str) -> Callable:
         "deeplift": explainability_methods.get_deeplift_callable,
         "integrated_gradient": explainability_methods.get_integrated_gradient_callable,
         "gradient_x_input": explainability_methods.get_gradient_x_input_callable,
-        "deepliftshap": explainability_methods.get_deepliftshap_callable,
         "kernelshap": explainability_methods.get_kernelshap_callable,
         "lime": explainability_methods.get_lime_callable,
         "attention_rollout": explainability_methods.get_attention_rollout_callable,
