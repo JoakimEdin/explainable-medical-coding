@@ -39,12 +39,14 @@ mimiciii:
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mimiciii_full.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mimiciii_50.py
 
-mdace:
+mdace_icd9:
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/prepare_mdace.py data/raw data/processed
-	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd10_inpatient.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd9_inpatient.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd9_inpatient_code.py
 
+mdace_icd10:
+	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/prepare_mdace.py data/raw data/processed
+	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd10_inpatient.py
 
 roberta:
 	wget https://dl.fbaipublicfiles.com/biolm/RoBERTa-base-PM-M3-Voc-hf.tar.gz -P models

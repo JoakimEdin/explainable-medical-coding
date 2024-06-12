@@ -12,7 +12,7 @@ While our paper only presented results on MIMIC-III and MDACE, our code also sup
 7. Install [MIMIC-IV-Note](https://physionet.org/content/mimic-iv-note/2.2/) using wget (we used version 2.2)
 8. Install [MIMIC-III](https://physionet.org/content/mimiciii/1.4/) using wget (we used version 1.4)
 9. Back to the main repository folder `cd -`
-10. Prepare datasets `make mimiciii`, `make mimiciv`, `make mdace`
+10. Prepare datasets. `make mimiciii`and `make mdace_icd9` if you want to work with MIMIC-III and ICD-9 codes. `make mimiciv` and `make mdace_icd10` if you want to work with MIMIC-IV and ICD-10 codes.
 11. Download RoBERTa-base-PM-M3-Voc which is necessary for training PLM-ICD `make roberta`
 12. Download the 10 runs of the PGD, IGR, TM, B_S and B_U. They require 70GB of storage. `make models` (the command is slow to execute)
 13. Change the paths in the .env file. Set EXPERIMENT_PATH to were you want to store the experiments you will run.
