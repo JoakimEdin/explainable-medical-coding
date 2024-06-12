@@ -1,0 +1,10 @@
+name: advesarial_training_loss
+configs:
+  lambda_1: 0.01
+  lambda_2: 0.5
+  epsilon: 1e-5
+  num_iter: 2
+  alpha: 0.1
+  attack_type: pgd #fgsm
+  norm: l1
+  adv_dist: none

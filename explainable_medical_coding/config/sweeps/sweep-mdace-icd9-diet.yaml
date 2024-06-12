@@ -1,0 +1,32 @@
+program: train_plm.py
+name: MDACE ICD-9 | Token Masking multi seeds
+method: grid
+metric:
+  name: validation.f1_micro_tuned
+  goal: maximize
+parameters:
+  experiment:
+    value:
+      - mdace_icd9_code/plm_icd_tm
+
+  load_model:
+    values:
+      - models/unsupervised/jdjr2y77
+      - models/unsupervised/pati4i3b
+      - models/unsupervised/ov55kelz
+      - models/unsupervised/l2qznkbe
+      - models/unsupervised/mm7m818p
+      - models/unsupervised/1k5b5cxg
+      - models/unsupervised/09q1e08m
+      - models/unsupervised/0fom6iwn
+      - models/unsupervised/gice8s68
+      - models/unsupervised/vxrn54op
+
+
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - gpu=-1
+  - ${args_no_hyphens}

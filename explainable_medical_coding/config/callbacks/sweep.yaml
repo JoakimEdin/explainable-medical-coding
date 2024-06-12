@@ -1,0 +1,10 @@
+- name: WandbCallback
+  configs:
+    project: explainable-medical-coding-sweep
+    entity: null
+- name: EarlyStoppingCallback
+  configs:
+    split: validation
+    target: all
+    metric: map
+    patience: 6

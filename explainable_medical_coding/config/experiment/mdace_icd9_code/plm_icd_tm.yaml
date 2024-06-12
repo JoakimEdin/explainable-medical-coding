@@ -1,0 +1,38 @@
+# @package _global_
+defaults:
+  - override /model: plm_icd
+  - override /lr_scheduler: defaults
+  - override /optimizer: adamw
+  - override /callbacks: mean_average_precision
+  - override /data: mdace_inpatient_icd9_code
+  - override /loss: tm
+
+
+dataloader:
+  max_batch_size: 8
+  batch_size: 16
+
+optimizer:
+  configs:
+    lr: 1e-5
+    weight_decay: 0
+
+trainer:
+  threshold_tuning: true
+  epochs: 1
+  clip_grad_norm: 1
+
+data:
+  max_length: 6000
+
+load_model: /models/unsupervised/qrqeualp
+distillation: true
+
+loss:
+  configs:
+    lambda_1: 1
+    total_epochs: 5
+    diet_constant: 0.01
+    lr: 0.1
+    rounding_schedule: false
+    distillation: true

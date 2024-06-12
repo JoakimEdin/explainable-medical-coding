@@ -1,0 +1,7 @@
+name: masking_loss
+configs:
+  lambda_1: 0.1
+  total_epochs: 5
+  diet_constant: 1
+  lr: 0.1
+  rounding_schedule: false

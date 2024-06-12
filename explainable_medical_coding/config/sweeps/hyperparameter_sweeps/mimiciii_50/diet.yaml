@@ -1,0 +1,38 @@
+name: PLM-ICD Hyperparameter Sweep | MIMIC-III 50 Code | adversarial training bce alpha
+program: train_plm.py
+method: grid
+early_terminate:
+    type: hyperband
+    min_iter: 1
+    eta: 0.6
+metric:
+  name: validation.f1_micro_tuned
+  goal: maximize
+parameters:
+  experiment:
+    value: mimiciii_50/plm_icd_diet
+  trainer.epochs:
+    value: 5
+  trainer.threshold_tuning:
+    value: true
+  trainer.validate_on_training_data:
+    value: false
+  data.max_length:
+    value: 6000
+  dataloader.max_batch_size:
+    value: 8
+  optimizer.configs.lr:
+    values: [5e-5, 1e-5]
+  optimizer.configs.weight_decay:
+    value: 0
+  loss.configs.lambda_1:
+    values: [1, 0.1, 0.01]
+  loss.configs.diet_constant:
+    value: 1
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - gpu=-1
+  - ${args_no_hyphens}

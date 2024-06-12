@@ -1,0 +1,12 @@
+name: AutoRegressive
+autoregressive: true
+configs:
+  model_path: /data/users/je/pretrained_models/RoBERTa-base-PM-M3-Voc-hf
+  chunk_size: 128
+  teacher_force_ratio: 1.0
+  decoder_config:
+    d_model: 512
+    nhead: 8
+    num_layers: 3
+    dim_feedforward: 2048
+    dropout: 0.1

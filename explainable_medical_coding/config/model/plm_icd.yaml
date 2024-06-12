@@ -1,0 +1,10 @@
+name: PLMICD
+autoregressive: false
+configs:
+  model_path: models/roberta-base-pm-m3-voc-hf
+  chunk_size: 128
+  cross_attention: true
+  loss: binary_cross_entropy
+  lambda_1: 0.0
+  scale: 1
+  mask_input: false

@@ -1,0 +1,24 @@
+defaults:
+  - _self_
+  - data: mimiciv_icd10cm
+  - dataloader: defaults
+  - model: plm_icd
+  - trainer: defaults
+  - optimizer: adam
+  - lr_scheduler: defaults
+  - metrics: defaults
+  - callbacks: defaults
+  - loss: bce
+  - experiment: null
+
+
+hydra:
+  output_subdir: null
+seed: 1337
+deterministic: false
+gpu:
+  - 6
+name: null
+debug: false
+load_model: null # The path where to find the model, text encoder and label encoder
+distillation: false

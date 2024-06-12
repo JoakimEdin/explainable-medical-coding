@@ -1,0 +1,3 @@
+dataset_path: explainable_medical_coding/datasets/mdace_inpatient_icd10.py
+target_columns: ["diagnosis_codes"]
+max_length: 6000

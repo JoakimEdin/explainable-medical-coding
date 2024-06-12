@@ -1,0 +1,8 @@
+- name: LossMetric
+  configs: {}
+- name: F1Score
+  configs:
+    average: "micro"
+- name: F1Score
+  configs:
+    average: "macro"

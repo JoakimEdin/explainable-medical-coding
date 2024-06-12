@@ -1,0 +1,25 @@
+defaults:
+  - _self_
+  - data: mdace_inpatient_icd9
+model_folder_path: models
+run_id: igr/1p0vue7o
+ # baseline qrqeualp, igr wcba96wa
+explainers:
+  - random
+  - laat #this is what we call Attention in the paper
+  - attention_rollout
+  - deeplift
+  - gradient_x_input
+  - integrated_gradient
+  # - occlusion ## slow
+  # - kernelshap ## slow
+  # - lime ## slow
+  - grad_attention #this is what we call AttInGrad in the paper
+  - atgrad_attention #this is what we call AttGrad in the paper
+batch_size: 64
+create_run_id_folder: True
+cache_explanations: True
+combine_test_train: False # combine the mdace test and train data
+evaluate_faithfulness: True
+gpu: -1
+model_name: test

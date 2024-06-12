@@ -1,0 +1,15 @@
+- name: WandbCallback
+  configs:
+    project: explainable-medical-coding
+    entity: null
+- name: SaveBestModelCallback
+  configs:
+    split: validation
+    target: all
+    metric: f1_micro
+- name: EarlyStoppingCallback
+  configs:
+    split: validation
+    target: all
+    metric: f1_micro
+    patience: 6

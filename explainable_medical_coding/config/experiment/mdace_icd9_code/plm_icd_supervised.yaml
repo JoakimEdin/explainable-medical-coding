@@ -1,0 +1,26 @@
+# @package _global_
+defaults:
+  - override /model: plm_icd
+  - override /lr_scheduler: warmup_linear_decay
+  - override /optimizer: adamw
+  - override /callbacks: mean_average_precision
+  - override /data: mdace_inpatient_icd9_code
+  - override /loss: supervised
+
+
+dataloader:
+  max_batch_size: 16
+  batch_size: 16
+
+optimizer:
+  configs:
+    lr: 5e-5
+    weight_decay: 0
+
+trainer:
+  threshold_tuning: true
+  epochs: 20
+  clip_grad_norm: 1
+
+data:
+  max_length: 6000
