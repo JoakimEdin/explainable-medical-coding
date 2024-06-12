@@ -29,7 +29,6 @@ setup:
 ## Make Dataset
 mimiciv:
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/prepare_mimiciv.py data/raw data/processed
-	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mimiciv_icd10cm.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mimiciv_icd10.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mimiciv_icd9.py
 
@@ -39,13 +38,10 @@ mimiciii:
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mimiciii_full.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mimiciii_50.py
 
-mdace_icd9:
+mdace:
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/prepare_mdace.py data/raw data/processed
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd9_inpatient.py
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd9_inpatient_code.py
-
-mdace_icd10:
-	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/prepare_mdace.py data/raw data/processed
 	poetry run $(PYTHON_INTERPRETER) explainable_medical_coding/data/make_mdace_icd10_inpatient.py
 
 roberta:
