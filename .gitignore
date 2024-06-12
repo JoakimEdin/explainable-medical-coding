@@ -95,5 +95,4 @@ roberta-base-pm-m3-voc-hf
 wandb/
 
 outputs/
-reports/explainability_results/
 multirun/
