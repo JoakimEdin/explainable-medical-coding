@@ -23,7 +23,7 @@ Code from our paper: [An Unsupervised Approach to Achieve Supervised-Level Expla
 
 # What's new?
 We released the [code](https://github.com/JoakimEdin/medical-coding-reproducibility/blob/main/README.md) for our previous paper, [Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://dl.acm.org/doi/10.1145/3539618.3591918), which became somewhat popular. This code introduces several new features.
-- **Explainability**: We implemented multiple feature attribution methods and metrics. We hope no one will have to experience the pain of implementing the methods for multi-label classification and PLM-ICD (the chunking strategy makes it complicated).
+- **Explainability**: We implemented multiple feature attribution methods and metrics for multi-label classification. 
 - **Implementation of a modified PLM-ICD**: In our previous paper, we had issues with PLM-ICD that occasionally collapsed during training. We have fixed this problem.
 - **Huggingface Datasets**: we implemented MIMIC-III, IV, and MDACE as HuggingFace datasets. A special thanks to Jonas Lyngsø for this contribution.
 - **Inference code**: you can now easily use the models for inference without access to the original dataset. This was a desired feature in our previous repository.
@@ -125,6 +125,7 @@ I ran the experiments on one A100 80GB per experiment. I had 2TB RAM on my machi
 
 # ⚠️ Known issues
 * IGR, TM and PGD require a lot of gpu memory and compute to train. Smaller machines may not be capable of training them. You can use a smaller batch-size using the --max_batch_size parameter. However, a small machine may not fit a batch size of 1 for these adversarial training strategies.
+* LIME and KernelSHAP are extremely slow. We used the Captum implementation which only supports multi-class classification. For each class, the code performs 3*total_number_of_tokens forward passes. For 6,000 tokens documents with 15 medical codes, this is 6,000*15*3 = 270,000 forward passes. It would be possible to implement these methods for multi-label classification to calculate the impact on all classes simultaneously like we did for Occlusion@1. This would result in 6,000*3 = 18,000 forward passes instead.
 
 # Acknowledgement
 Thank you, Jonas Lyngsø, for providing the template for making the datasets in explainable_medical_coding/datasets/.
