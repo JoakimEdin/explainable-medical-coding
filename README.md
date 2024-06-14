@@ -23,12 +23,25 @@ Code from our paper: [An Unsupervised Approach to Achieve Supervised-Level Expla
 
 # What's new?
 We released the [code](https://github.com/JoakimEdin/medical-coding-reproducibility/blob/main/README.md) for our previous paper, [Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://dl.acm.org/doi/10.1145/3539618.3591918), which became somewhat popular. This code introduces several new features.
-- **Explainability**: We implemented multiple feature attribution methods and metrics for multi-label classification. 
+
+- **Explainability**: We implemented multiple feature attribution methods and metrics for multi-label classification.
 - **Implementation of a modified PLM-ICD**: In our previous paper, we had issues with PLM-ICD that occasionally collapsed during training. We have fixed this problem.
 - **Huggingface Datasets**: we implemented MIMIC-III, IV, and MDACE as HuggingFace datasets. A special thanks to Jonas Lyngsø for this contribution.
+- **More efficient pre-processing**: Our data pre-processing is faster and use less memory thanks to [Polars](https://docs.pola.rs/api/python/stable/reference/index.html).
 - **Inference code**: you can now easily use the models for inference without access to the original dataset. This was a desired feature in our previous repository.
 
-To make the code cleaner, the code no longer contains CAML, LAAT, and MultiResCNN. We only use PLM-ICD. We found that pre-processing was unnecessary for this model, so we no longer remove specific characters.
+| Type         | Explanation method   |
+|--------------|----------------------|
+| Gradient     | InputXGradient       |
+| Gradient     | Integrated Gradients |
+| Gradient     | Deeplift             |
+| Perturbation | Occlusion@1          |
+| Perturbation | LIME                 |
+| Perturbation | KernelSHAP           |
+| Attention    | Attention            |
+| Attention    | AttGrad              |
+| Attention    | Attention Rollout    |
+| Attention    | AttInGrad            |
 
 # Setup
 While our paper only presented results on MIMIC-III and MDACE, our code also supports experiments on MIMIC-IV. Here is a guide to setting up the repository for experimentation and reproducibility. Notice that you will need +100 GB of storage to fit everything.
