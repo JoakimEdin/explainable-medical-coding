@@ -1,5 +1,25 @@
 Explainable Medical Coding
 ==============================
+Code from our paper: [An Unsupervised Approach to Achieve Supervised-Level Explainability in Healthcare Records](https://arxiv.org/pdf/2406.08958)
+
+```bibtex
+@misc{edinUnsupervisedApproachAchieve2024,
+  title = {An {{Unsupervised Approach}} to {{Achieve Supervised-Level Explainability}} in {{Healthcare Records}}},
+  author = {Edin, Joakim and Maistro, Maria and Maal{\o}e, Lars and Borgholt, Lasse and Havtorn, Jakob D. and Ruotsalo, Tuukka},
+  year = {2024},
+  month = jun,
+  number = {arXiv:2406.08958},
+  eprint = {2406.08958},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  urldate = {2024-06-14},
+  abstract = {Electronic healthcare records are vital for patient safety as they document conditions, plans, and procedures in both free text and medical codes. Language models have significantly enhanced the processing of such records, streamlining workflows and reducing manual data entry, thereby saving healthcare providers significant resources. However, the black-box nature of these models often leaves healthcare professionals hesitant to trust them. State-of-the-art explainability methods increase model transparency but rely on human-annotated evidence spans, which are costly. In this study, we propose an approach to produce plausible and faithful explanations without needing such annotations. We demonstrate on the automated medical coding task that adversarial robustness training improves explanation plausibility and introduce AttInGrad, a new explanation method superior to previous ones. By combining both contributions in a fully unsupervised setup, we produce explanations of comparable quality, or better, to that of a supervised approach. We release our code and model weights.},
+  archiveprefix = {arxiv},
+  langid = {english},
+  keywords = {Computer Science - Machine Learning},
+  file = {/Users/joakimedin/Zotero/storage/Z7WAXDTU/Edin et al. - 2024 - An Unsupervised Approach to Achieve Supervised-Level Explainability in Healthcare Records.pdf}
+}
+```
 
 # Setup
 While our paper only presented results on MIMIC-III and MDACE, our code also supports experiments on MIMIC-IV. Here is a guide to setting up the repository for experimentation and reproducibility. Notice that you will need +100 GB of storage to fit everything.
@@ -98,4 +118,4 @@ I ran the experiments on one A100 80GB per experiment. I had 2TB RAM on my machi
 * IGR, TM and PGD require a lot of gpu memory and compute to train. Smaller machines may not be capable of training them. You can use a smaller batch-size using the --max_batch_size parameter. However, a small machine may not fit a batch size of 1 for these adversarial training strategies.
 
 # Acknowledgement
-Thank you _ for providing the template for making the datasets in explainable_medical_coding/datasets/.
+Thank you, Jonas Lyngsø, for providing the template for making the datasets in explainable_medical_coding/datasets/.
