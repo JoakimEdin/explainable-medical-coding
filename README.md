@@ -140,5 +140,8 @@ I ran the experiments on one A100 80GB per experiment. I had 2TB RAM on my machi
 * IGR, TM and PGD require a lot of gpu memory and compute to train. Smaller machines may not be capable of training them. You can use a smaller batch-size using the --max_batch_size parameter. However, a small machine may not fit a batch size of 1 for these adversarial training strategies.
 * LIME and KernelSHAP are extremely slow. We used the Captum implementation which only supports multi-class classification. For each class, the code performs 3 x total_number_of_tokens forward passes. For 6,000 tokens documents with 15 medical codes, this is 6,000 x 15 x 3 = 270,000 forward passes. It would be possible to implement these methods for multi-label classification to calculate the impact on all classes simultaneously like we did for Occlusion@1. This would result in 6,000 x 3 = 18,000 forward passes instead.
 
+# Other resources
+Check out [my blog post](https://substack.com/home/post/p-145913061?source=queue) criticizing popular ideas in automated medical coding. I think it will be interesting for most researchers in the field
+
 # Acknowledgement
 Thank you, Jonas Lyngsø, for providing the template for making the datasets in explainable_medical_coding/datasets/.
