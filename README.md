@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ceec058e-026c-4b4c-8675-78a8c7238889" width="600" alt="centered image" />
+</p>
+
 Explainable Medical Coding
 ==============================
 Code from our paper: [An Unsupervised Approach to Achieve Supervised-Level Explainability in Healthcare Records](https://arxiv.org/pdf/2406.08958)
