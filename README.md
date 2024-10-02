@@ -6,6 +6,9 @@ Explainable Medical Coding
 ==============================
 Code from our paper: [An Unsupervised Approach to Achieve Supervised-Level Explainability in Healthcare Records](https://arxiv.org/pdf/2406.08958)
 
+Paper: https://arxiv.org/abs/2406.08958
+Blog post: https://joakimedin.substack.com/p/an-unsupervised-approach-to-achieve
+
 ```bibtex
 @misc{edinUnsupervisedApproachAchieve2024,
   title = {An {{Unsupervised Approach}} to {{Achieve Supervised-Level Explainability}} in {{Healthcare Records}}},
