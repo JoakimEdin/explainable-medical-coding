@@ -22,7 +22,6 @@ from explainable_medical_coding.utils.analysis import predict
 from explainable_medical_coding.utils.data_helper_functions import (
     create_targets_column,
     filter_unknown_targets,
-    format_evidence_spans,
     get_unique_targets,
 )
 from explainable_medical_coding.utils.seed import set_seed
@@ -80,7 +79,6 @@ def main(cfg: OmegaConf) -> None:
     dataset = dataset.filter(
         lambda x: len(x[TARGET_COLUMN]) > 0, desc="Filtering empty targets"
     )
-    dataset = dataset.map(lambda x: format_evidence_spans(x, text_tokenizer))
 
     autoregressive = bool(cfg.model.autoregressive)
     target_tokenizer = TargetTokenizer(autoregressive=autoregressive)
