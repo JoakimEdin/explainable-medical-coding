@@ -36,7 +36,7 @@ class TargetTokenizer:
         Args:
             targets (list[str]): The targets.
         """
-        self.id2target = list(set(targets))
+        self.id2target = sorted(list(set(targets)))
         if self.autoregressive:
             self.id2target = [SOS, EOS, PAD] + self.id2target
         self.target2id = {target: idx for idx, target in enumerate(self.id2target)}
