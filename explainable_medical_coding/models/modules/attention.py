@@ -104,7 +104,7 @@ class LabelCrossAttention(nn.Module):
             attention_masks = attention_masks.unsqueeze(1).repeat(
                 1, self.num_classes, 1
             )
-            attention_masks = attention_masks.masked_fill_(
+            attention_masks = torch.zeros_like(attention_masks).type_as(att_weights).masked_fill_(
                 attention_masks.logical_not(), float("-inf")
             )
             att_weights += attention_masks
